@@ -4,14 +4,14 @@ var bodyParser = require("body-parser");
 
 var port = process.env.PORT || 3000;
 
+//Stores the express function in variable app to be used below
+var app = express();
+
 // Set Handlebars.
 var expressHandlebars = require("express-handlebars");
 
 app.engine("handlebars", expressHandlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-
-//Stores the express function in variable app to be used below
-var app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(process.cwd() + '/public'));
@@ -20,7 +20,7 @@ app.use(express.static(process.cwd() + '/public'));
 app.use(bodyParser.urlencoded({extended: false}));
 
 // This requirement points to where our Express routes are located and gives the server access to them.
-var routes = require('/controllers/burgers_controllers.js');
+var routes = require('./controllers/burgers_controller.js');
 app.use("/", routes);
 
 // listens for database requests from the user
