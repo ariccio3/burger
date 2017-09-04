@@ -7,6 +7,9 @@ var port = process.env.PORT || 3000;
 //Stores the express function in variable app to be used below
 var app = express();
 
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static("public"));
+
 // Set Handlebars.
 var expressHandlebars = require("express-handlebars");
 
