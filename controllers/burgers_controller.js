@@ -1,7 +1,7 @@
 var express = require("express");
-var burger = require("../models/burger.js");
-
 var router = express.Router();
+
+var burger = require("../models/burger.js");
 
 // Create the router for the app, and export the router at the end of your file.
 router.get("/", function(req, res) {
@@ -16,16 +16,16 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
   burger.insertOne([
-    "burger_name", "devoured"
+    "burger_name"
   ], [
-    req.body.burger_name, req.body.devoured
+    req.body.burger_name
   ], function() {
     res.redirect("/");
   });
 });
 
-router.put("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
+router.put("/", function(req, res) {
+  var condition = req.params.devoured;
 
   console.log("condition", condition);
 

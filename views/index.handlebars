@@ -1,55 +1,55 @@
-***Create a button in index.handlebars that will submit the user input into the database.
 
 <div class="content">
-<img src="http://cliparting.com/wp-content/uploads/2016/09/Clip-art-of-hamburgers-and-sandwiches.png" alt="burger picture" style="width:250px;height:190px;">
+  <img src="http://cliparting.com/wp-content/uploads/2016/09/Clip-art-of-hamburgers-and-sandwiches.png" alt="burger picture" style="width:250px;height:190px;">
 
-<h2>EAT-DA-BURGA!</h2>
+  <h2>EAT-DA-BURGA!</h2>
 
-<div class="row" id="burgerList">
-  <div class="col-6">
-    <ul>
-      {{#each burgers}}
-        {{#unless this.devoured}}
-          <li>
-            {{this.name}}
+  <div class="row" id="burgerList">
+    <div class="col-6">
+      <ol>
+        {{#each burgers}}
+          {{#unless this.devoured}}
+            <li>
+              {{this.burger_name}}
 
-            <form action="/{{this.id}}?_method=PUT" method="POST">
-              <input type="hidden" name="devoured" value="false">
-              <button type="submit">Devour it!</button>
-            </form>
+              <form action="/{{this.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="devoured" value="true">
+                <button type="submit">Devour it!</button>
+              </form>
 
-          </li>
-        {{/unless}}
-      {{/each}}
-    </ul>
+            </li>
+          {{/unless}}
+        {{/each}}
+      </ol>
+    </div>
   </div>
+
+  <div class="row" id="devouredList">
+    <div class="col-6">
+      <ol>
+        {{#each burgers}}
+          {{#if this.devoured}}
+            <li>
+              {{this.burger_name}}
+
+              <form action="/{{this.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="devoured" value="true">
+              </form>
+
+            </li>
+          {{/if}}
+        {{/each}}
+      </ol>
+    </div>
+  </div>
+
+  <form class="create-update-form" action="/" method="POST">
+
+    <div class="form-group">
+      <input type="text" id="textBox" name="burger_name">
+    </div>
+
+    <button type="submit">Submit</button>
+    <h5>Enter a burger you want to eat. Click the "Submit" button.</h5>
+  </form>
 </div>
-
-<div class="row" id="devouredList">
-  <div class="col-6">
-    <ul>
-      {{#each burgers}}
-        {{#if this.devoured}}
-          <li>
-            {{this.name}}
-
-            <form action="/{{this.id}}?_method=PUT" method="POST">
-              <input type="hidden" name="devoured" value="true">
-            </form>
-
-          </li>
-        {{/if}}
-      {{/each}}
-    </ul>
-  </div>
-</div>
-
-<form class="create-update-form" action="/" method="POST">
-
-  <div class="form-group">
-    <input type="text" id="textBox" name="name">
-  </div>
-
-  <button type="submit">Submit</button>
-  <h5>Enter a burger you want to eat. Click the "Submit" button.</h5>
-</form>
