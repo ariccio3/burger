@@ -10,17 +10,17 @@
         <ol>
           {{#each burgers}}
             {{#unless this.devoured}}
-              <form class="form-inline">
+                    <form action="/{{this.id}}?_method=PUT" method="POST">
+
                 <div class="form-group" id="burgers">
                   <li>
                     {{this.burger_name}}
                     </div> 
-                    <form action="/{{this.id}}?_method=PUT" method="POST">
                         <input type="hidden" name="devoured" value="true">
                         <button type="submit" class="devourButton">Devour it!</button>
-                    </form>
+                    
                   </li>
-              </form>
+           </form>
             {{/unless}}
           {{/each}}
         </ol>
@@ -30,7 +30,7 @@
         <ol>
           {{#each burgers}}
             {{#if this.devoured}}
-              <form class="form-inline">
+              <form>
                 <div class="form-group" id="eatenBurgers">
                   <li>
                     {{this.burger_name}}
