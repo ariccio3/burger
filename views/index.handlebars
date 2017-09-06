@@ -13,16 +13,15 @@
               <form class="form-inline">
                 <div class="form-group" id="burgers">
                   <li>
-                {{this.burger_name}}
-                </div> 
+                    {{this.burger_name}}
+                    </div> 
 
-                <form action="/{{this.id}}?_method=PUT" method="POST">
-                    <input type="hidden" name="devoured" value="true">
-                    <button type="submit" class="devourButton">Devour it!</button>
-                </form>
-               
+                    <form action="/{{this.id}}?_method=PUT" method="POST">
+                        <input type="hidden" name="devoured" value="true">
+                        <button type="submit" class="devourButton">Devour it!</button>
+                    </form>
+                  </li>
               </form>
-              </li>
             {{/unless}}
           {{/each}}
         </ol>
