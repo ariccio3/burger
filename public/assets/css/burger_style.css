@@ -1,13 +1,63 @@
-* {
-	border: red, 2px;
+/** {
+	border: 2px solid red;
+}*/
+
+body {
+	background-image: url("../img/food.png");
 }
 
 .content {
-    max-width: 500px;
     margin: auto;
+    text-align: center; 
 }
 
 #burgerList {
-	text-align: right
+	float: left;
+	width: 50%;
+}
+
+#devouredList {
+	float: left;
+	width: 50%;
+}
+
+.devourButton {
+	float: right;
+	margin-left: 25px;
+	margin-top: 20px;
+}
+
+#textBox {
+	width: 200px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+#burgers {
+	background-color: white;
+	text-align: left;
+	padding: 10px;
+	padding-left: 25px;
+	border-radius: 5px;
+	margin-top: 5px;
+	width: 150px;
+	display: inline-block;
+}
+
+#eatenBurgers {
+	background-color: white;
+	text-align: left;
+	padding: 10px;
+	padding-left: 25px;
+	border-radius: 5px;
+	margin-top: 5px;
+	width: 150px;
+	display: inline-block;
+	float: left;
+	margin-left: 25px;
+}
+
+ol {
+	padding-left: 0em;
 }
 
