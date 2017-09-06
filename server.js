@@ -1,6 +1,6 @@
 var express = require("express");
-var methodOverride = require("method-override");
 var bodyParser = require("body-parser");
+var methodOverride = require("method-override");
 
 var port = process.env.PORT || 3000;
 
@@ -21,6 +21,9 @@ app.use(express.static(process.cwd() + '/public'));
 
 // Parses only URL encoded bodies. A new body object containing the parsed data is populated on the request object after the middleware (i.e. req.body)
 app.use(bodyParser.urlencoded({extended: false}));
+
+// Override with POST having ?_method=DELETE
+app.use(methodOverride("_method"));
 
 // This requirement points to where our Express routes are located and gives the server access to them.
 var routes = require('./controllers/burgers_controller.js');

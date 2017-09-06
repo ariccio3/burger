@@ -9,6 +9,7 @@ body {
 .content {
     margin: auto;
     text-align: center; 
+    margin-top: 15px;
 }
 
 #burgerList {
@@ -31,6 +32,7 @@ body {
 	width: 200px;
 	margin: auto;
 	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
 #burgers {
