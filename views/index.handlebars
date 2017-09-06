@@ -10,17 +10,16 @@
         <ol>
           {{#each burgers}}
             {{#unless this.devoured}}
-                    <form action="/{{this.id}}?_method=PUT" method="POST">
+              <form action="/{{this.id}}?_method=PUT" method="POST">
 
                 <div class="form-group" id="burgers">
                   <li>
                     {{this.burger_name}}
-                    </div> 
-                        <input type="hidden" name="devoured" value="true">
-                        <button type="submit" class="devourButton">Devour it!</button>
-                    
+                </div> 
+                    <input type="hidden" name="devoured" value="true">
+                    <button type="submit" class="devourButton">Devour it!</button>
                   </li>
-           </form>
+              </form>
             {{/unless}}
           {{/each}}
         </ol>
